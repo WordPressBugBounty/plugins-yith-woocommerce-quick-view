@@ -4,7 +4,7 @@ Tags: woocommerce, quick view, woocommerce quick view, products quick view
 Requires PHP: 7.4
 Requires at least: 6.5
 Tested up to: 6.7
-Stable tag: 2.0.0
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,7 +33,7 @@ And thanks to the new 100% mobile friendly design, YITH WooCommerce Quick View a
 * Set the color of the close icon
 * Set the colors of the “Quick View” button
 
-Wanto to see the plugin in action? Take a look at the [live demo of the free version >] (https://plugins.yithemes.com/yith-woocommerce-quick-view-free/).
+Want to see the plugin in action? Take a look at the [live demo of the free version >](https://plugins.yithemes.com/yith-woocommerce-quick-view-free/).
 
 == Need extra features? Upgrade to premium! ==
 With the free version of YITH WooCommerce Quick View you have everything you need to show a
@@ -79,6 +79,11 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 3. The quick view modal.
 
 == Changelog ==
+
+= 2.1.0 = Released 16 December 2024
+* New: support for WooCommerce 9.5
+* Update: YITH plugin framework
+
 = 2.0.0 = Released 19 November 2024
 * New: support for WordPress 6.7
 * New: support for WooCommerce 9.4
