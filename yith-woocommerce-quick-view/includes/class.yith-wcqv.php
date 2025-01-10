@@ -1,4 +1,4 @@
-<?php //phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
+<?php
 /**
  * Main class
  *
@@ -63,6 +63,9 @@ if ( ! class_exists( 'YITH_WCQV' ) ) {
 		 */
 		public function __construct() {
 
+			// Load Plugin Framework.
+			add_action( 'after_setup_theme', array( $this, 'plugin_fw_loader' ), 1 );
+
 			if ( $this->can_load() ) {
 				if ( $this->is_admin() ) {
 					require_once 'class.yith-wcqv-admin.php';
@@ -73,8 +76,6 @@ if ( ! class_exists( 'YITH_WCQV' ) ) {
 					YITH_WCQV_Frontend();
 				}
 			}
-
-			add_action( 'init', array( $this, 'add_image_size' ) );
 		}
 
 		/**
@@ -121,24 +122,29 @@ if ( ! class_exists( 'YITH_WCQV' ) ) {
 		 * @return boolean
 		 */
 		public function load_frontend() {
+			$enable           = get_option( 'yith-wcqv-enable', 'yes' ) === 'yes';
 			$enable_on_mobile = get_option( 'yith-wcqv-enable-mobile', 'yes' ) === 'yes';
-			return apply_filters( 'yith_wcqv_load_frontend', ! wp_is_mobile() || $enable_on_mobile );
+			$is_mobile        = wp_is_mobile();
+
+			return apply_filters( 'yith_wcqv_load_frontend', ( ! $is_mobile && $enable ) || ( $is_mobile && $enable_on_mobile ) );
 		}
 
 
 		/**
-		 * Add image size
+		 * Load Plugin Framework
 		 *
-		 * @since  2.0.0
+		 * @since  1.0
+		 * @access public
 		 * @return void
 		 */
-		public function add_image_size() {
-			// Set image size.
-			$dimensions = get_option('yith-quick-view-product-image-dimensions', array('dimensions' => array( 'width' => 450, 'height' => 600, ), 'unit' => 'px', 'linked' => 'no',));
-			$width = $dimensions['dimensions']['width'] ?? 450;
-			$height = $dimensions['dimensions']['height'] ?? 600;
-
-			add_image_size( 'quick_view_image_size', $width, $height, true );
+		public function plugin_fw_loader() {
+			if ( ! defined( 'YIT_CORE_PLUGIN' ) ) {
+				global $plugin_fw_data;
+				if ( ! empty( $plugin_fw_data ) ) {
+					$plugin_fw_file = array_shift( $plugin_fw_data );
+					require_once $plugin_fw_file;
+				}
+			}
 		}
 	}
 }
