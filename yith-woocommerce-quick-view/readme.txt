@@ -2,9 +2,9 @@
 Contributors: yithemes
 Tags: woocommerce, quick view, woocommerce quick view, products quick view
 Requires PHP: 7.4
-Requires at least: 6.6
-Tested up to: 6.8
-Stable tag: 2.8.0
+Requires at least: 6.7
+Tested up to: 6.9
+Stable tag: 2.11.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,19 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 3. The quick view modal.
 
 == Changelog ==
+
+= 2.11.0 = Released 26 January 2026
+* New: support for WooCommerce 10.5
+* Update: YITH plugin framework
+
+= 2.10.0 = Released 05 December 2025
+* New: support for WordPress 6.8
+* New: support for WooCommerce 10.4
+* Update: YITH plugin framework
+
+= 2.9.0 = Released 20 October 2025
+* New: support for WooCommerce 10.3
+* Update: YITH plugin framework
 
 = 2.8.0 = Released 22 September 2025
 * New: support for WooCommerce 10.2
